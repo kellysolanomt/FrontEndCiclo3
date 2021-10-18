@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--<meta charset="UTF-8">-->
+    <title>Proyecto Patinetas</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="js/misFunciones.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+        
+</head>
+<body>
+    <h1 class="tituloGrande" align="center">PROYECTO PATINETAS</h1>
+    <hr>
+    <h4 class="tituloMediano" align="center">Elija la opción a ejecutar</h4>
+    <!-- <div id='resultado'></div> -->
+    <div id="botonesArriba" align="center">
+        <button onclick="traerInfoSkate()" class="botonesOprimidos">Consultar Patinetas</button>
+        <button onclick="traerInfoCategory()" class="botonesOprimidos">Consultar Categorias</button>
+        <button onclick="traerInfoClient()" class="botonesOprimidos">Consultar Clientes</button>
+        <button onclick="traerInfoMessage()" class="botonesOprimidos">Consultar Mensajes</button>
+        <button onclick="traerInfoReservation()" class="botonesOprimidos">Consultar Reservas</button>
+        <button onclick="traerInfoAdmin()" class="botonesOprimidos">Consultar Administradores</button>
+    </div>
+    <br><br>
+    
+    <div id="tablePatinetas">
+        <table border="1" align="center"> 
+            <thead>
+                <tr>
+                    <td class="centradoAzul" colspan="7">PATINETAS</td>
+                </tr>
+                <tr>
+                    <td>NAME</td>
+                    <td>BRAND</td>
+                    <td>YEAR</td>
+                    <td>DESCRIPTION</td>
+                    <td colspan="2" align="center">ACTIONS</td>
+                </tr>
+            </thead>
+            <tbody id='resultadoSkate'></tbody>
+        </table>
+    </div>
+
+    <div id="tableCategorias">
+        <table border="1" align="center"> 
+            <thead>
+                <tr>
+                    <td class="centradoAzul" colspan="7">CATEGORIAS</td>
+                </tr>
+                <tr>
+                    <td>NAME</td>
+                    <td>DESCRIPTION</td>
+                    <td colspan="2" align="center">ACTIONS</td>
+                </tr>
+            </thead>
+            <tbody id='resultadoCategory'></tbody>
+        </table>
+    </div>
+
+    <div id="tableClientes">
+        <table border="1" align="center"> 
+            <thead>
+                <tr>
+                    <td class="centradoAzul" colspan="6">CLIENTES</td>
+                </tr>
+                <tr>
+                    <td>NAME</td>
+                    <td>EMAIL</td>
+                    <td>PASSWORD</td>
+                    <td>AGE</td>
+                    <td colspan="2" align="center">ACTIONS</td>
+                </tr>
+            </thead>
+            <tbody id='resultadoClient'></tbody>
+        </table>
+    </div>
+
+    <div id="tableMensajes">
+        <table border="1" align="center"> 
+            <thead>
+                <tr>
+                    <td class="centradoAzul" colspan="4">MENSAJES</td>
+                </tr>
+                <tr>
+                    <td>MESSAGETEXT</td>
+                    <td colspan="2" align="center">ACTIONS</td>
+                </tr>
+            </thead>
+            <tbody id='resultadoMessage'></tbody>
+        </table>
+    </div>
+
+    <div id="tableReservas">
+        <table border="1" align="center"> 
+            <thead>
+                <tr>
+                    <td class="centradoAzul" colspan="6">RESERVAS</td>
+                </tr>
+                <tr>
+                    <td>STARTDATE</td>
+                    <td>DEVOLUTIONDATE</td>
+                    <td>STATUS</td>
+                    <td>SCORE</td>
+                    <td colspan="2" align="center">ACTIONS</td>
+                </tr>
+            </thead>
+            <tbody id='resultadoReservation'></tbody>
+        </table>
+    </div>
+
+    <div id="tableAdministradores">
+        <table border="1" align="center"> 
+            <thead>
+                <tr>
+                    <td class="centradoAzul" colspan="4">ADMINISTRADORES</td>
+                </tr>
+                <tr>
+                    <td>NAME</td>
+                    <td>EMAIL</td>
+                    <td colspan="2" align="center">ACTIONS</td>
+                </tr>
+            </thead>
+            <tbody id='resultadoAdmin'></tbody>
+        </table>
+    </div>
+
+    <br><br>
+
+    <div id="botonesAbajo" align="center">
+        <button onclick="mostrarFormularioSkate()" class="botonesOprimidos">Registro de Patinetas</button>
+        <button onclick="mostrarFormularioCategory()" class="botonesOprimidos">Registro de Categoria</button>
+        <button onclick="mostrarFormularioClient()" class="botonesOprimidos">Registro de Clientes</button>
+        <button onclick="mostrarFormularioMessage()" class="botonesOprimidos">Registro de Mensajes</button>
+        <button onclick="mostrarFormularioReservation()" class="botonesOprimidos">Registro de Reservas</button>
+        <button onclick="mostrarFormularioAdmin()" class="botonesOprimidos">Registro de Administradores</button>
+    </div>
+
+    <br><br>
+
+    <div id="formularioPatinetas">
+        <table border="0" align="center">
+            <tr>
+                <td class="centradoAzul" colspan="2">Creación de patinetas</td>
+            </tr>
+            <tr>
+                <td>NAME:</td>
+                <td><input type="text" id="name_skate" placeholder="name" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td>BRAND:</td>
+                <td><input type="text" id="brand_skate" placeholder="brand" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td>YEAR:</td>
+                <td><input type="text" id="year_skate" placeholder="year" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td>DESCRIPTION:</td>
+                <td><input type="text" id="description_skate" placeholder="description" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td>CATEGORYID:</td>
+                <td><input type="number" id="categoryId_skate" placeholder="categoryId" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td class="centradoAzul" colspan="2">
+                    <button onclick="guardarInfoSkate()">Guardar</button>
+                    <button onclick="editarInfoSkate()">Editar</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="formularioCategorias">
+        <table border="0" align="center">
+            <tr>
+                <td class="centradoAzul" colspan="2">Creación de Categorias</td>
+            </tr>
+            <tr>
+                <td>NAME:</td>
+                <td><input type="text" id="name_category" placeholder="name" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td>DESCRIPTION:</td>
+                <td><input type="text" id="description_category" placeholder="description" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td class="centradoAzul" colspan="2">
+                    <button onclick="guardarInfoCategory()">Guardar</button>
+                    <button onclick="editarInfoCategory()">Editar</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="formularioCliente">
+        <table border="0" align="center">
+            <tr>
+                <td class="centradoAzul" colspan="2">Registro de Clientes</td>
+            </tr>
+            <tr>
+                <td>NAME:</td>
+                <td><input type="text" id="name_client" placeholder="name" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td>EMAIL:</td>
+                <td><input type="text" id="email_client" placeholder="email" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td>PASSWORD:</td>
+                <td><input type="text" id="password_client" placeholder="password" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td>AGE:</td>
+                <td><input type="number" id="age_client" placeholder="age" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td class="centradoAzul" colspan="2">
+                    <button onclick="guardarInfoClient()">Guardar</button>
+                    <button onclick="editarInfoClient()">Editar</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="formularioMensaje">
+        <table border="0" align="center">
+            <tr>
+                <td class="centradoAzul" colspan="2">Registro de Mensajes</td>
+            </tr>
+            <tr>
+                <td>MESSAGE:</td>
+                <td><textarea name="messagetext_message" rows="5" cols="50" id="messagetext_message" autofocus></textarea></td>
+            </tr>
+            <tr>
+                <td>CLIENT:</td>
+                <td><input type="number" id="client_message" placeholder="client" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td>SKATE:</td>
+                <td><input type="number" id="skate_message" placeholder="skate" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td class="centradoAzul" colspan="2">
+                    <button onclick="guardarInfoMessage()">Guardar</button>
+                    <button onclick="editarInfoMessage()">Editar</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="formularioReserva">
+        <table border="0" align="center">
+            <tr>
+                <td class="centradoAzul" colspan="2">Registro de Reservas</td>
+            </tr>
+            <tr>
+                <td>STARTDATE:</td>
+                <td><input type="date" id="startdate_reservation" placeholder="startDate" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td>DEVOLUTIONDATE:</td>
+                <td><input type="date" id="devolution_reservation" placeholder="devolutionDate" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td>CLIENT:</td>
+                <td><input type="number" id="client_reservation" placeholder="client" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td>SKATE:</td>
+                <td><input type="number" id="skate_reservation" placeholder="skate" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td class="centradoAzul" colspan="2">
+                    <button onclick="guardarInfoReservation()">Guardar</button>
+                    <button onclick="editarInfoReservation()">Editar</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="formularioAdministradores">
+        <table border="0" align="center">
+            <tr>
+                <td class="centradoAzul" colspan="2">Registro de Administradores</td>
+            </tr>
+            <tr>
+                <td>NAME:</td>
+                <td><input type="text" id="name_admin" placeholder="name" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td>EMAIL:</td>
+                <td><input type="text" id="email_admin" placeholder="email" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td>PASSWORD:</td>
+                <td><input type="text" id="password_admin" placeholder="password" class="relleno" autofocus></td>
+            </tr>
+            <tr>
+                <td class="centradoAzul" colspan="2">
+                    <button onclick="guardarInfoAdmin()">Guardar</button>
+                    <button onclick="editarInfoAdmin()">Editar</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <br><br>
+    <!-- <button onclick="editarInformacion()">Editar</button> -->
+</body>
+</html>
