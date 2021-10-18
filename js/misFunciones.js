@@ -1,7 +1,7 @@
 //****************************************GET SKATE***********************************************/
 function traerInfoSkate(){
     $.ajax({
-        url:"http://168.138.124.98:8080/api/Skate/all",
+        url:"http://168.138.124.98:80/api/Skate/all",
         type:"GET",
         datatype:"JSON",
         success:function (respuestaSkate) {
@@ -22,7 +22,7 @@ function traerInfoSkate(){
 //****************************************GET CATEGORY***********************************************/
 function traerInfoCategory(){
     $.ajax({
-        url:"http://168.138.124.98:8080/api/Category/all",
+        url:"http://168.138.124.98:80/api/Category/all",
         type:"GET",
         datatype:"JSON",
         success:function (respuestaCategory) {
@@ -43,7 +43,7 @@ function traerInfoCategory(){
 //****************************************GET CLIENTE***********************************************/
 function traerInfoClient(){
     $.ajax({
-        url:"http://168.138.124.98:8080/api/Client/all",
+        url:"http://168.138.124.98:80/api/Client/all",
         type:"GET",
         datatype:"JSON",
         success:function (respuestaClient) {
@@ -65,7 +65,7 @@ function traerInfoClient(){
 //****************************************GET MESSAGE***********************************************/
 function traerInfoMessage(){
     $.ajax({
-        url:"http://168.138.124.98:8080/api/Message/all",
+        url:"http://168.138.124.98:80/api/Message/all",
         type:"GET",
         datatype:"JSON",
         success:function (respuestaMessage) {
@@ -87,7 +87,7 @@ function traerInfoMessage(){
 //****************************************GET RESERVATION***********************************************/
 function traerInfoReservation(){
     $.ajax({
-        url:"http://168.138.124.98:8080/api/Reservation/all",
+        url:"http://168.138.124.98:80/api/Reservation/all",
         type:"GET",
         datatype:"JSON",
         success:function (respuestaReservation) {
@@ -108,7 +108,7 @@ function traerInfoReservation(){
 
 function traerInfoAdmin(){
     $.ajax({
-        url:"http://168.138.124.98:8080/api/Admin/all",
+        url:"http://168.138.124.98:80/api/Admin/all",
         type:"GET",
         datatype:"JSON",
         success:function (respuestaAdmin) {
@@ -289,7 +289,7 @@ function guardarInfoSkate(){
     };
     
     $.ajax({
-        url:"http://168.138.124.98:8080/api/Skate/save",
+        url:"http://168.138.124.98:80/api/Skate/save",
         type:"POST",
         data:myData,
         contentType: "application/json; charset=utf-8",
@@ -318,7 +318,7 @@ function guardarInfoCategory(){
     };
     //let dataToSend=JSON.stringify(myData);
     $.ajax({
-        url:"http://168.138.124.98:8080/api/Category/save",
+        url:"http://168.138.124.98:80/api/Category/save",
         type:"POST",
         data:myData,
         contentType: "application/json; charset=utf-8",
@@ -345,7 +345,7 @@ function guardarInfoClient(){
         age:$("#age_client").val()
     };
     $.ajax({
-        url:"http://168.138.124.98:8080/api/Client/save",
+        url:"http://168.138.124.98:80/api/Client/save",
         type:"POST",
         data:myData,
         contentType: "application/json; charset=utf-8",
@@ -373,7 +373,7 @@ function guardarInfoMessage(){
         skateId:$("#skate_message").val(),
     };
     $.ajax({
-        url:"http://168.138.124.98:8080/api/Message/save",
+        url:"http://168.138.124.98:80/api/Message/save",
         type:"POST",
         data:myData,
         contentType: "application/json; charset=utf-8",
@@ -401,7 +401,7 @@ function guardarInfoReservation(){
         skateId:$("#skate_reservation").val(),
     };
     $.ajax({
-        url:"http://168.138.124.98:8080/api/Reservation/save",
+        url:"http://168.138.124.98:80/api/Reservation/save",
         type:"POST",
         data:myData,
         contentType: "application/json; charset=utf-8",
@@ -429,7 +429,7 @@ function guardarInfoAdmin(){
         password:$("#password_admin").val(),
     };
     $.ajax({
-        url:"http://168.138.124.98:8080/api/Admin/save",
+        url:"http://168.138.124.98:80/api/Admin/save",
         type:"POST",
         data:myData,
         contentType: "application/json; charset=utf-8",
